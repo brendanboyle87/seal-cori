@@ -37,6 +37,7 @@ end
 group :test do
   gem "launchy", require: false
   gem "valid_attribute"
+  gem 'coveralls', require: false
 end
 
 group :production, :staging do
