@@ -12,6 +12,6 @@ RSpec.describe User, type: :model do
   it { should validate_length_of(:social_security).is_equal_to(9) }
 
   it do
-    should validate_inclusion_of(:state). in StatesHelper::us_states
+    should validate_inclusion_of(:state). in_array StatesHelper::US_STATES
   end
 end
