@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :zip, length: {is: 6}, allow_nil: true
   validates :social_security, length: {is: 9}, allow_nil: true
   validates :state, inclusion: { in: StatesHelper::US_STATES }, allow_nil: true
+  validates :date_of_birth, date: true
 
 
   devise :database_authenticatable, :registerable,
