@@ -1,1 +1,14 @@
-<h1> Welcome to SealCORI </h1> 
+<div small-12-columns small-centered >
+  <h1 align= "center"> Welcome to SealCORI! </h1>
+  <p> Do you have a criminal record in Massachusetts? Has it stopped you from getting a job or housing? <p>
+      SealCORI will help determine if you can have your records sealed.
+      Once they are sealed you will no longer have to put you have a criminal record when completing applications. <p>
+
+  <%= link_to "Sign up to get started!", new_user_registration_path %>
+</div>
+
+<% unless current_user.nil? %>
+  <div small-12-columns small-cenetred >
+    
+  <div>
+<% end %>
