@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "foundation-rails"
 gem "react-rails"
 gem "dotenv-rails"
+gem "devise"
+gem "date_validator"
 
 group :development, :test do
   gem "capybara"
@@ -37,6 +39,7 @@ end
 group :test do
   gem "launchy", require: false
   gem "valid_attribute"
+  gem 'coveralls', require: false
 end
 
 group :production, :staging do
