@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -27,6 +27,7 @@ gem "dotenv-rails"
 gem "devise"
 gem "date_validator"
 
+
 group :development, :test do
   gem "capybara"
   gem "factory_girl_rails"
@@ -40,6 +41,8 @@ group :test do
   gem "launchy", require: false
   gem "valid_attribute"
   gem 'coveralls', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :production, :staging do
