@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "foundation-rails"
-gem "react-rails"
 gem "dotenv-rails"
 gem "devise"
 gem "date_validator"
@@ -40,6 +39,8 @@ group :test do
   gem "launchy", require: false
   gem "valid_attribute"
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
 
 group :production, :staging do

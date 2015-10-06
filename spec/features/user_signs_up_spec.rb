@@ -18,6 +18,7 @@ feature 'user registers', %{
     fill_in 'Last name', with: 'Smith'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
+    check('user_terms_of_service')
 
     click_button 'Sign up'
 
