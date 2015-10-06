@@ -9,9 +9,10 @@
 
 <% unless current_user.nil? %>
   <div class= "small-12-columns small-cenetred question-box" align= "center" >
-    <p> Do you have your CORI report? </p>
+
 
   <%= form_tag("/", method: 'post', id: 'question_one') do %>
+    <p> Do you have your CORI report? </p>
     <%= radio_button_tag(:yes_or_no, "yes") %>
     <%= label_tag(:yes, "Yes") %>
     <%= radio_button_tag(:yes_or_no, "no") %>

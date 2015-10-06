@@ -6,7 +6,7 @@ $('#question_one_submit').on('click', function(e) {
       }
       if (document.getElementById("yes_or_no_yes").checked) {
         debugger;
-        $(".question-box").hide();
+        $(".question_one").hide();
         console.log("hidden");
       }
   });
