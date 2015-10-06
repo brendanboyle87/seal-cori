@@ -1,4 +1,4 @@
-<div small-12-columns small-centered >
+<div class= "small-12-columns small-centered" >
   <h1 align= "center"> Welcome to SealCORI! </h1>
   <p> Do you have a criminal record in Massachusetts? Has it stopped you from getting a job or housing? <p>
       SealCORI will help determine if you can have your records sealed.
@@ -8,7 +8,16 @@
 </div>
 
 <% unless current_user.nil? %>
-  <div small-12-columns small-cenetred >
-    
+  <div class= "small-12-columns small-cenetred question-box" align= "center" >
+
+
+  <%= form_tag("/", method: 'post', id: 'question_one') do %>
+    <p> Do you have your CORI report? </p>
+    <%= radio_button_tag(:yes_or_no, "yes") %>
+    <%= label_tag(:yes, "Yes") %>
+    <%= radio_button_tag(:yes_or_no, "no") %>
+    <%= label_tag(:no, "No") %>
+    <%= submit_tag("Submit", id: 'question_one_submit') %>
+  <% end %>
   <div>
 <% end %>

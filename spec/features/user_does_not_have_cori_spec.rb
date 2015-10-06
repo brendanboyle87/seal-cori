@@ -24,7 +24,10 @@ feature 'user does not have cori report', %{
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
 
-    choose('No')
+    click_button "Log in"
+
+    choose 'yes_or_no_no'
+    click_on('Submit')
 
     expect(page).to have_content("Here is how to get your CORI")
   end
