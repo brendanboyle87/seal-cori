@@ -19,6 +19,7 @@ feature 'user registers', %{
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
 
+    check('user_terms_of_service')
     click_button 'Sign up'
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
