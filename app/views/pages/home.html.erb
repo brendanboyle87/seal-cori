@@ -8,7 +8,15 @@
 </div>
 
 <% unless current_user.nil? %>
-  <div small-12-columns small-cenetred >
-    
+  <div small-12-columns small-cenetred question-box align= center>
+    <p> Do you have your CORI report? </p>
+
+  <%= form_tag("/", method: 'post', id: 'question_one') do %>
+    <%= radio_button_tag(:yes_or_no, "yes") %>
+    <%= label_tag(:yes, "Yes") %>
+    <%= radio_button_tag(:yes_or_no, "no") %>
+    <%= label_tag(:no, "No") %>
+    <%= submit_tag("Submit", id: 'question_one_submit') %>
+  <% end %>
   <div>
 <% end %>
