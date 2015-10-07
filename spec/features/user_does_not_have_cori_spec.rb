@@ -8,15 +8,7 @@ feature 'user does not have cori report', %{
   # Acceptance Criteria:
   # * User must be signed in to see the eligibility form
   #  If the user does not have their CORI, they are instructed how to obtain it.
-  scenario 'provide valid registration information', js: true do
-    user = FactoryGirl.create(:user)
-
-    visit "/"
-
-    expect(page).to have_no_content("Do you have your CORI report?")
-
-  end
-  scenario 'user signs in and does not have CORI report', js: true do
+  scenario 'user signs in and does not have CORI report' do
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
