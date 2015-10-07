@@ -8,8 +8,8 @@
 </div>
 
 <% unless current_user.nil? %>
-  <div class= "small-12-columns small-cenetred question-box" align= "center" >
-    <%= form_tag("/", method: 'post', id: 'question_one') do %>
+  <div class= "small-12-columns small-centered question-box" align= "center" >
+    <%= form_tag("", method: 'post', id: 'question_one') do %>
       <p> Do you have your CORI report? </p>
       <%= radio_button_tag(:yes_or_no, "yes") %>
       <%= label_tag(:yes, "Yes") %>
@@ -18,14 +18,4 @@
       <%= submit_tag("Submit", id: 'question_one_submit') %>
     <% end %>
   <div>
-  <div class="small-12-columns small-cenetred question-two-box">
-    <%= form_for @crime do |f| %>
-        <p> Please enter the following information: </p>
-          
-
-
-
-     <%= f.submit "Submit" %>
-     <% end %>
-  </div>
 <% end %>

@@ -4,7 +4,6 @@ $('#question_one_submit').on('click', function(e) {
         document.location.href = '/pages/nocori';
       }
       if (document.getElementById('yes_or_no_yes').checked) {
-        $('#question_one').hide();
-        console.log('hidden');
+          console.log('hidden');
       }
   });
