@@ -1,7 +1,6 @@
-
 <div class "small-12-column small-centered columns" align= "center">
   <p>
-    Please fill out the form below with the information from the first crime on your CORI Report:
+    Please fill out the form below with the information from the next crime on your CORI Report:
   </p>
 </div>
 <div class= "row">
@@ -28,8 +27,8 @@
         <%= label_tag(:incarcerated, "No") %>
       </div>
           <div class= "row">
-        <div class= "date-group small-6-column small-centered columns">
-          <span id="date-text"> <%= f.label :disposition_date, "Disposition Date:" %> </span>
+        <div class= "date-group hidden small-6-column small-centered columns">
+          <span id="date-text"> <%= f.label :disposition_date, "Disposition Date" %> </span>
           <%= f.text_field :disposition_date, id: "datepicker" %>
         </div>
       </div>

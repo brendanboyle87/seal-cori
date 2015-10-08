@@ -7,15 +7,28 @@ feature 'user makes it to eligibility form', %{
   # Acceptance Criteria:
   # * User must be signed in to see the eligibility form
   #  If the user does not have their CORI, they are instructed how to obtain it.
+  scenario 'user does not input required fields', js: true do
+    user = FactoryGirl.create(:user)
+
+    sign_in_as(user)
+
+    choose 'yes_or_no_yes'
+    click_on('Submit')
+
+    choose 'yes_or_no_no'
+    click_on('Submit')
+
+    find("#eligibility-submit").trigger('click')
+
+    expect(page).to have_content("Disposition date can't be blank")
+    expect(page).to have_content("Crime name can't be blank")
+    expect(page).to have_content("Disposition date is not a date")
+  end
+
   scenario 'user is not eligible due to disposition date of misdemeanor conviction', js: true do
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button "Log in"
+    sign_in_as(user)
 
     choose 'yes_or_no_yes'
     click_on('Submit')
@@ -24,8 +37,7 @@ feature 'user makes it to eligibility form', %{
     click_on('Submit')
 
     fill_in 'Name of Crime', with: "Simple Assault"
-    choose('felony_or_misdemeanor_misdemeanor')
-    choose('convicted_true')
+    choose('convicted_yes')
     choose('incarcerated_yes')
     fill_in 'datepicker', with: "08/08/2013"
 
@@ -39,12 +51,7 @@ feature 'user makes it to eligibility form', %{
   scenario 'user is not eligible due to disposition date of felony conviction', js: true do
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button "Log in"
+    sign_in_as(user)
 
     choose 'yes_or_no_yes'
     click_on('Submit')
@@ -54,7 +61,7 @@ feature 'user makes it to eligibility form', %{
 
     fill_in 'Name of Crime', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
-    choose('convicted_true')
+    choose('convicted_yes')
     choose('incarcerated_yes')
     fill_in 'datepicker', with: "08/08/2007"
 
@@ -62,5 +69,27 @@ feature 'user makes it to eligibility form', %{
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "Aggravated Assault is not eligible to be sealed at this time"
+  end
+
+  scenario 'user is not eligible due to disposition date of felony without conviction', js: true do
+    user = FactoryGirl.create(:user)
+
+    sign_in_as(user)
+
+    choose 'yes_or_no_yes'
+    click_on('Submit')
+
+    choose 'yes_or_no_no'
+    click_on('Submit')
+
+    fill_in 'Name of Crime', with: "Aggravated Assault"
+    choose('felony_or_misdemeanor_felony')
+
+    fill_in 'datepicker', with: "08/08/2007"
+
+
+    find("#eligibility-submit").trigger('click')
+
+    expect(page).to have_content "Please fill out the form below with the information from the next crime on your CORI Report"
   end
 end

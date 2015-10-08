@@ -6,22 +6,19 @@ $(function() {
   });
 });
 
-$('#convicted_true').on('click',function() {
+$('#convicted_yes').on('click',function() {
   $('#incarcerated-group').removeClass('hidden');
-  $('.date-group').addClass('hidden');
 });
-
-$('#convicted_false').on('click',function() {
-  $('.date-group').removeClass('hidden');
+//
+$('#convicted_no').on('click',function() {
   $('#incarcerated-group').addClass('hidden')
+  $('#date-text').text("Disposition Date:");
 });
-
+//
 $('#incarcerated_yes').on('click', function(){
-  $('.date-group').removeClass('hidden');
   $('#date-text').text("Release Date:");
 });
 
 $('#incarcerated_no').on('click', function(){
-  $('.date-group').removeClass('hidden');
   $('#date-text').text("Disposition Date:");
 });

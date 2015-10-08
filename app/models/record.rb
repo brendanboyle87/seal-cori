@@ -3,8 +3,10 @@ class Record < ActiveRecord::Base
 
   validates :crime_name, presence: true
   validates :convicted, inclusion:{ in: [true, false] }
-  validates :felony, inclusion:{ in: [true, false] }, allow_nil: true
-  validates :misdemeanor, inclusion:{ in: [true, false] }, allow_nil: true
+  validates :felony, inclusion:{ in: [true, false] },
+                     allow_nil: true
+  validates :misdemeanor, inclusion:{ in: [true, false] },
+                          allow_nil: true
 
   validates :user, presence: true
   validates :disposition_date, date: true, presence: true

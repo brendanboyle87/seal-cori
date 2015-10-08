@@ -13,7 +13,7 @@ class RecordsController < ApplicationController
     if @record.save
       unless eligible?(@record)
         if !@record.convicted?
-          redirect_to record_update_path(@record)
+          redirect_to edit_record_path(@record)
           return
         else
           redirect_to record_path(@record)
@@ -32,6 +32,10 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
   end
 
+  def edit
+    @record = Record.find(params[:id])
+  end
+
   private
 
   def record_params
@@ -41,10 +45,10 @@ class RecordsController < ApplicationController
        params[:record][:felony] = true
     end
 
-    if params[:convicted] == "true"
+    if params[:convicted] == "yes"
       params[:record][:convicted] = true
     else
-      params[:record][:convicted] = true
+      params[:record][:convicted] = false
     end
     date = params[:record][:disposition_date]
     unless date.empty?
