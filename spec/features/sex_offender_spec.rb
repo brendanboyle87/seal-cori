@@ -11,12 +11,7 @@ feature 'user is a registrered sex offender or has been one', %{
   scenario 'user is a regsitered sex offender or has been in the past 15 years' do
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button "Log in"
+    sign_in_as(user)
 
     choose 'yes_or_no_yes'
     click_on('Submit')

@@ -25,6 +25,7 @@ gem "foundation-rails"
 gem "dotenv-rails"
 gem "devise"
 gem "date_validator"
+gem "jquery-ui-rails", '~> 4.2.1'
 
 group :development, :test do
   gem "capybara"

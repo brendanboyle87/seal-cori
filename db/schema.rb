@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(version: 20151007121018) do
   enable_extension "plpgsql"
 
   create_table "records", force: :cascade do |t|
+    t.string   "crime_name",       null: false
     t.boolean  "felony"
     t.boolean  "misdemeanor"
-    t.string   "crime_name",  null: false
-    t.date     "date",        null: false
-    t.integer  "user_id",     null: false
+    t.boolean  "convicted",        null: false
+    t.date     "disposition_date", null: false
+    t.integer  "user_id",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,7 +42,6 @@ ActiveRecord::Schema.define(version: 20151007121018) do
     t.inet     "last_sign_in_ip"
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
-    
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

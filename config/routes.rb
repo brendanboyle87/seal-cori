@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
   resources :cori_questions, only: [:index]
   resources :sex_offenders, only: [:index, :new]
+  resources :records, only: [:new, :create, :show, :update, :edit]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
