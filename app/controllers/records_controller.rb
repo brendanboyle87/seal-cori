@@ -52,7 +52,7 @@ class RecordsController < ApplicationController
     end
     date = params[:record][:disposition_date]
     unless date.empty?
-      params[:record][:disposition_date] = Date.strptime(date,'%d/%m/%Y')
+      params[:record][:disposition_date] = Date.strptime(date, '%d/%m/%Y')
     end
     params.require(:record).permit(
     :crime_name,:disposition_date, :convicted, :misdemeanor, :felony)

@@ -41,9 +41,7 @@ feature 'user makes it to eligibility form', %{
     choose('incarcerated_yes')
     fill_in 'datepicker', with: "08/08/2013"
 
-
     find("#eligibility-submit").trigger('click')
-
     expect(page).to have_content "Simple Assault is not eligible to be sealed at this time"
   end
 
@@ -65,9 +63,7 @@ feature 'user makes it to eligibility form', %{
     choose('incarcerated_yes')
     fill_in 'datepicker', with: "08/08/2007"
 
-
     find("#eligibility-submit").trigger('click')
-
     expect(page).to have_content "Aggravated Assault is not eligible to be sealed at this time"
   end
 
@@ -86,8 +82,6 @@ feature 'user makes it to eligibility form', %{
     choose('felony_or_misdemeanor_felony')
 
     fill_in 'datepicker', with: "08/08/2007"
-
-
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "Please fill out the form below with the information from the next crime on your CORI Report"
