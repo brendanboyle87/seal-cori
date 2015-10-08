@@ -7,5 +7,5 @@ class Record < ActiveRecord::Base
   validates :misdemeanor, inclusion:{ in: [true, false] }, allow_nil: true
 
   validates :user, presence: true
-  validates :date, date: true
+  validates :disposition_date, date: true, presence: true
 end

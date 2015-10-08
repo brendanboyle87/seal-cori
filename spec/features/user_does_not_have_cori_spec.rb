@@ -18,6 +18,7 @@ feature 'user does not have cori report', %{
 
     click_button "Log in"
 
+    expect(page).to have_content("Do you have your CORI report?")
     choose 'yes_or_no_no'
     click_on('Submit')
 
