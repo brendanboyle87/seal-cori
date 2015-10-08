@@ -24,10 +24,10 @@ feature 'user is a registrered sex offender or has been one', %{
     choose 'yes_or_no_no'
     click_on('Submit')
 
-    fill_in 'Name', with: "Simple Assault"
-    choose('Convcited', from: 'Disposition')
-    choose 'incarcerated_yes'
-    fill_in 'Date of Release', with: "08/08/2013"
+    fill_in 'Crime Name', with: "Simple Assault"
+    choose('felony_or_misdemeanor_misdemeanor')
+    choose('incarcerated_yes')
+    fill_in 'Release Date:', with: "08/08/2013"
 
     expect(page).to have_content "Simple Assault is a misdemeanor. You
     must wait five years from the date of your release to seal your records."

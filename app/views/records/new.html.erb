@@ -10,9 +10,9 @@
       <%= f.label :crime_name, "Name of Crime" %>
       <%= f.text_field :crime_name %>
 
-      <%= radio_button_tag(:felony_or_misdemeanor, "true") %>
+      <%= radio_button_tag(:felony_or_misdemeanor, "felony") %>
       <%= label_tag(:felony, "Felony") %>
-      <%= radio_button_tag(:felony_or_misdemeanor, "true") %>
+      <%= radio_button_tag(:felony_or_misdemeanor, "misdemeanor") %>
       <%= label_tag(:misdemeanor, "Misdemeanor") %>
       <br>
       <%= radio_button_tag(:convicted, "true") %>
@@ -29,11 +29,12 @@
       </div>
           <div class= "row">
         <div class= "date-group hidden small-6-column small-centered columns">
-          <span id="date-text"> Disposition Date: </span><div id="datepicker"></div>
+          <span id="date-text"> <%= f.label :disposition_date, "Disposition Date" %> </span>
+          <%= f.text_field :disposition_date, id: "datepicker" %>
         </div>
       </div>
 
-      <% f.submit "Submit" %>
+      <%= f.submit "Submit" %>
     <% end %>
   </div>
 </div>
