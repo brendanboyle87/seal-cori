@@ -26,8 +26,8 @@
         <%= radio_button_tag(:incarcerated, "no", checked: true) %>
         <%= label_tag(:incarcerated, "No") %>
       </div>
-          <div class= "row">
-        <div class= "date-group hidden small-6-column small-centered columns">
+      <div class= "row">
+        <div class= "date-group small-6-column small-centered columns">
           <span id="date-text"> <%= f.label :disposition_date, "Disposition Date" %> </span>
           <%= f.text_field :disposition_date, id: "datepicker" %>
         </div>

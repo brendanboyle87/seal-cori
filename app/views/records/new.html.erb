@@ -1,8 +1,13 @@
-
 <div class "small-12-column small-centered columns" align= "center">
-  <p>
-    Please fill out the form below with the information from the first crime on your CORI Report:
-  </p>
+  <% if !session[:crime_count].blank? && session[:crime_count] >= 1 %>
+     <p>
+      Please fill out the form below with the information from the next crime on your CORI Report:
+     </p>
+  <% else %>
+    <p>
+      Please fill out the form below with the information from the first crime on your CORI Report:
+    </p>
+  <% end %>
 </div>
 <div class= "row">
   <div class= "small-6-column columns eligibility-form">
