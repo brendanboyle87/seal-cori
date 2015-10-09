@@ -13,7 +13,8 @@ class RecordsController < ApplicationController
     if @record.save
       unless eligible?(@record)
         if !@record.convicted?
-          redirect_to edit_record_path(@record)
+          session[:crime_count] = 1
+          redirect_to new_record_path
           return
         else
           redirect_to record_path(@record)
