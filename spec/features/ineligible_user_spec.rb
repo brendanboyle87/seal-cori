@@ -11,12 +11,7 @@ feature 'user makes it to eligibility form', %{
     user = FactoryGirl.create(:user)
 
     sign_in_as(user)
-
-    choose 'yes_or_no_yes'
-    click_on('Submit')
-
-    choose 'yes_or_no_no'
-    click_on('Submit')
+    question_one_two
 
     find("#eligibility-submit").trigger('click')
 
@@ -29,12 +24,7 @@ feature 'user makes it to eligibility form', %{
     user = FactoryGirl.create(:user)
 
     sign_in_as(user)
-
-    choose 'yes_or_no_yes'
-    click_on('Submit')
-
-    choose 'yes_or_no_no'
-    click_on('Submit')
+    question_one_two
 
     fill_in 'Name of Crime', with: "Simple Assault"
     choose('convicted_yes')
@@ -50,12 +40,7 @@ feature 'user makes it to eligibility form', %{
     user = FactoryGirl.create(:user)
 
     sign_in_as(user)
-
-    choose 'yes_or_no_yes'
-    click_on('Submit')
-
-    choose 'yes_or_no_no'
-    click_on('Submit')
+    question_one_two
 
     fill_in 'Name of Crime', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
@@ -71,12 +56,22 @@ feature 'user makes it to eligibility form', %{
     user = FactoryGirl.create(:user)
 
     sign_in_as(user)
+    question_one_two
 
-    choose 'yes_or_no_yes'
-    click_on('Submit')
+    fill_in 'Name of Crime', with: "Aggravated Assault"
+    choose('felony_or_misdemeanor_felony')
 
-    choose 'yes_or_no_no'
-    click_on('Submit')
+    fill_in 'datepicker', with: "08/08/2007"
+    find("#eligibility-submit").trigger('click')
+
+    expect(page).to have_content "Please fill out the form below with the information from the next crime on your CORI Report"
+  end
+
+  scenario 'user is not eligible due to disposition date of felony without conviction', js: true do
+    user = FactoryGirl.create(:user)
+
+    sign_in_as(user)
+    question_one_two
 
     fill_in 'Name of Crime', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
