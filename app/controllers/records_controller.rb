@@ -11,18 +11,19 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
     @record.user = current_user
     if @record.save
-      unless eligible?(@record)
+      unless @record.eligible?
         if !@record.convicted?
           session[:crime_count] = 1
-          redirect_to new_record_path
+          redirect_to new_more_crime_path
           return
         else
           redirect_to record_path(@record)
           return
         end
       end
-      flash[:notice] = "Congrats! You are eligible!"
-      redirect_to new_personal_information_path
+      if @record.misdemeanor?
+        redirect_to new_more_crime_path
+      end
     else
       flash[:errors] = @record.errors.full_messages.join(". ")
       render :new
@@ -57,15 +58,5 @@ class RecordsController < ApplicationController
     end
     params.require(:record).permit(
     :crime_name,:disposition_date, :convicted, :misdemeanor, :felony)
-  end
-
-  def eligible?(record)
-    if record.misdemeanor? && (record.disposition_date > (DateTime.now - 5.years))
-      false
-    elsif record.felony? && (record.disposition_date > (DateTime.now - 10.years))
-      false
-    else
-      true
-    end
   end
 end

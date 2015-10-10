@@ -64,7 +64,7 @@ feature 'user makes it to eligibility form', %{
     fill_in 'datepicker', with: "08/08/2007"
     find("#eligibility-submit").trigger('click')
 
-    expect(page).to have_content "Please fill out the form below with the information from the next crime on your CORI Report"
+    expect(page).to have_content "Do you have another crime on your CORI report?"
   end
 
   scenario 'user is not eligible due to disposition date of felony without conviction', js: true do
@@ -79,6 +79,6 @@ feature 'user makes it to eligibility form', %{
     fill_in 'datepicker', with: "08/08/2007"
     find("#eligibility-submit").trigger('click')
 
-    expect(page).to have_content "Please fill out the form below with the information from the next crime on your CORI Report"
+    expect(page).to have_content "Do you have another crime on your CORI report?"
   end
 end
