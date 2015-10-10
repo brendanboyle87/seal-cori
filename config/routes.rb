@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :sex_offenders, only: [:index, :new]
   resources :more_crimes, only: [:index, :new]
   resources :records, only: [:new, :create, :show, :update, :edit]
+  resources :personal_informations, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

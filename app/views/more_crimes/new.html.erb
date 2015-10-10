@@ -1,5 +1,5 @@
 <div class= "small-12-columns small-cenetred question-box" align= "center" >
-  <%= form_tag(new_more_crime_path, method: 'get', id: 'more-crimes-question') do %>
+  <%= form_tag(more_crimes_path, method: 'get', id: 'more-crimes-question') do %>
     <p> Do you have another crime on your CORI report? </p>
     <%= radio_button_tag(:yes_or_no, "yes") %>
     <%= label_tag(:yes, "Yes") %>

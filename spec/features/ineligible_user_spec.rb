@@ -64,21 +64,23 @@ feature 'user makes it to eligibility form', %{
     fill_in 'datepicker', with: "08/08/2007"
     find("#eligibility-submit").trigger('click')
 
+    expect(page).to have_content "This crime is not eligible to be sealed yet."
     expect(page).to have_content "Do you have another crime on your CORI report?"
   end
 
-  scenario 'user is not eligible due to disposition date of felony without conviction', js: true do
+  scenario 'user is not eligible due to disposition date of misdemeanor without conviction', js: true do
     user = FactoryGirl.create(:user)
 
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
-    choose('felony_or_misdemeanor_felony')
+    fill_in 'Name of Crime', with: "Simple Assault"
+    choose('felony_or_misdemeanor_misdemeanor')
 
-    fill_in 'datepicker', with: "08/08/2007"
+    fill_in 'datepicker', with: "08/08/2012"
     find("#eligibility-submit").trigger('click')
 
+    expect(page).to have_content "This crime is not eligible to be sealed yet."
     expect(page).to have_content "Do you have another crime on your CORI report?"
   end
 end

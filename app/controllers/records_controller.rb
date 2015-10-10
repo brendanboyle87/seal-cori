@@ -14,6 +14,7 @@ class RecordsController < ApplicationController
       unless @record.eligible?
         if !@record.convicted?
           session[:crime_count] = 1
+          flash[:notice] = "This crime is not eligible to be sealed yet."
           redirect_to new_more_crime_path
           return
         else
@@ -22,7 +23,13 @@ class RecordsController < ApplicationController
         end
       end
       if @record.misdemeanor?
+        flash[:notice] = "This crime is eligible to be sealed! Now we need to check
+        if there are other crimes on your report."
+        session[:crime_count] = 1
         redirect_to new_more_crime_path
+      else
+        redirect_to new_personal_information_path
+        return
       end
     else
       flash[:errors] = @record.errors.full_messages.join(". ")
