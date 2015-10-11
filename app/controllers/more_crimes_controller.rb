@@ -9,8 +9,7 @@ class MoreCrimesController < ApplicationController
           return
         end
       end
-
-      redirect_to new_personal_information_path
+      redirect_to new_other_state_path
       return
     else params[:yes_or_no] == "yes"
       redirect_to new_record_path
