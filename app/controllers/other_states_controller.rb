@@ -3,10 +3,10 @@ class OtherStatesController < ApplicationController
 
   def index
     if params[:yes_or_no] == "no"
-      redirect_to new_personal_information_path
-      return
+       redirect_to new_personal_information_path
+       return
     else params[:yes_or_no] == "yes"
-      redirect_to '/pages/other_states'
+       redirect_to '/pages/other_states'
     end
   end
 
