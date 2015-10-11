@@ -28,7 +28,7 @@ class RecordsController < ApplicationController
         session[:crime_count] = 1
         redirect_to new_more_crime_path
       else
-        redirect_to new_personal_information_path
+        redirect_to new_other_state_path
         return
       end
     else

@@ -28,6 +28,9 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
+    choose('yes_or_no_no')
+    click_button "Submit"
+
     expect(page).to have_content 'Congrats! You are elibigble! Please fill out the information below:'
   end
 
@@ -42,6 +45,9 @@ feature 'user with crimes eligible to be sealed', %{
 
     fill_in 'datepicker', with: "08/08/2003"
     find("#eligibility-submit").trigger('click')
+
+    choose('yes_or_no_no')
+    click_button "Submit"
 
     expect(page).to have_content 'Congrats! You are elibigble! Please fill out the information below:'
   end
@@ -102,6 +108,9 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
+    choose('yes_or_no_no')
+    click_button "Submit"
+
     expect(page).to have_content 'Congrats! You are elibigble! Please fill out the information below:'
   end
 
@@ -128,6 +137,9 @@ feature 'user with crimes eligible to be sealed', %{
 
     fill_in 'datepicker', with: "08/08/2008"
     find("#eligibility-submit").trigger('click')
+
+    choose('yes_or_no_no')
+    click_button "Submit"
 
     choose('yes_or_no_no')
     click_button "Submit"
