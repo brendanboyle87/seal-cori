@@ -31,7 +31,7 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
-    expect(page).to have_content 'Congrats! You are elibigble! Please fill out the information below:'
+    expect(page).to have_content 'Congrats! You are elibigble!'
   end
 
   scenario 'users first crime is an eligible felony', js: true do
@@ -49,7 +49,7 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
-    expect(page).to have_content 'Congrats! You are elibigble! Please fill out the information below:'
+    expect(page).to have_content 'Congrats! You are elibigble!'
   end
 
   scenario 'user has eligible misdemeanor and an ineligible felony conviction', js: true do
@@ -111,7 +111,7 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
-    expect(page).to have_content 'Congrats! You are elibigble! Please fill out the information below:'
+    expect(page).to have_content 'Congrats! You are elibigble!'
   end
 
   scenario 'user has eligible misdemeanor and an ineligible misdemeanor non-conviction', js: true do
@@ -144,6 +144,6 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
-    expect(page).to have_content 'Congrats! You are elibigble! Please fill out the information below:'
+    expect(page).to have_content 'Congrats! You are elibigble!'
   end
 end
