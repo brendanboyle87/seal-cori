@@ -7,11 +7,15 @@ class PersonalInformationsController < ApplicationController
     @personal_information = PersonalInformation.new(personal_info_params)
     @personal_information.user = current_user
     if @personal_information.save
-
+      redirect_to personal_information_path(@personal_information)
     else
       flash[:errors] = @personal_information.errors.full_messages.join(". ")
       render :new
     end
+  end
+
+  def show
+    @personal_information = PersonalInformation.find(params[:id])
   end
 
   private
