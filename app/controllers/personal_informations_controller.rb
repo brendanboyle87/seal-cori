@@ -25,8 +25,8 @@ class PersonalInformationsController < ApplicationController
         user_pdf = PetitionGenerator.new(@personal_information)
         info = user_pdf.parse_data
         user_pdf.fill_form(info)
-        send_file("#{Rails.root}/lib/assets/mysealingpetition.pdf",
-                  filename: "mysealingpetition.pdf",
+        send_file("#{Rails.root}/lib/assets/sealingpetition#{current_user.id}.pdf",
+                  filename: "sealingpetition#{current_user.id}.pdf",
                   type: "application/pdf")
       end
     end

@@ -13,7 +13,7 @@ class PetitionGenerator
   end
 
   def parse_data
-    info_hash["form1[0].#subform[0].TextField1[0]"] = user.first_name + " " + user.last_name
+    info_hash["form1[0].#subform[0].TextField1[0]"] = user.first_name + "  " + @personal_information.middle_name + "  " + user.last_name
     info_hash["form1[0].#subform[0].TextField2[0]"] = "#{ @personal_information.date_of_birth }"
     info_hash["form1[0].#subform[0].TextField3[0]"] = "#{ @personal_information.previous_name }"
     info_hash["form1[0].#subform[0].TextField4[0]"] = "#{ @personal_information.address }"
@@ -42,6 +42,7 @@ class PetitionGenerator
 
 
   def fill_form(info)
-    pdftk.fill_form './lib/assets/sealingpetition.pdf', "./lib/assets/mysealingpetition.pdf", info
+    file = "./lib/assets/sealingpetition#{@user.id}.pdf"
+    pdftk.fill_form './lib/assets/sealingpetition.pdf',file,info
   end
 end
