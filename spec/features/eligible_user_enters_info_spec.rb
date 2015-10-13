@@ -32,7 +32,7 @@ feature 'user who is eligible with no crime in other states', %{
     expect(page).to have_content "Father name can't be blank."
     expect(page).to have_content "Zip can't be blank."
     expect(page).to have_content "Zip is not a number."
-    expect(page).to have_content "Zip is the wrong length (should be 6 characters)."
+    expect(page).to have_content "Zip is the wrong length (should be 5 characters)."
     expect(page).to have_content "Date of birth can't be blank"
   end
 end
