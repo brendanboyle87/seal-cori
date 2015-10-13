@@ -4,7 +4,7 @@ class PetitionGenerator
 
 
   def initialize(personal_information)
-    @pdftk = PdfForms.new('/usr/local/bin/pdftk')
+    @pdftk ||= PdfForms.new(ENV['PDFTK_PATH'] || '/usr/local/bin/pdftk')
     @personal_information = personal_information
     @user = personal_information.user
     @info_hash = {}
