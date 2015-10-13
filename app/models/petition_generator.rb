@@ -1,5 +1,3 @@
-require 'pry'
-
 class PetitionGenerator
   attr_reader :personal_information, :info_hash, :pdftk
   attr_accessor :info_hash, :user
