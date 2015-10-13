@@ -12,7 +12,7 @@ RSpec.describe PersonalInformation, type: :model do
   it { should validate_presence_of(:zip) }
   it { should validate_presence_of(:date_of_birth) }
 
-  it { should validate_length_of(:zip).is_equal_to(6) }
+  it { should validate_length_of(:zip).is_equal_to(5) }
   it { should validate_numericality_of(:zip).only_integer }
   it { should validate_inclusion_of(:state). in_array(StatesHelper::US_STATES) }
 end

@@ -8,6 +8,6 @@ class PersonalInformation < ActiveRecord::Base
   validates :father_name, presence: true
   validates :user, presence: true
   validates :zip, presence: true, numericality: { only_integer: true }
-  validates :zip, length: { is: 6 }
+  validates :zip, length: { is: 5 }
   validates :date_of_birth, presence: true, date: true
 end

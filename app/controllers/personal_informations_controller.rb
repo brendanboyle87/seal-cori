@@ -1,3 +1,5 @@
+require './app/models/petition_generator.rb'
+
 class PersonalInformationsController < ApplicationController
   def new
     @personal_information = PersonalInformation.new
@@ -16,6 +18,18 @@ class PersonalInformationsController < ApplicationController
 
   def show
     @personal_information = PersonalInformation.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        user_pdf = PetitionGenerator.new(@personal_information)
+        info = user_pdf.parse_data
+        user_pdf.fill_form(info)
+        send_file("#{Rails.root}/lib/assets/mysealingpetition.pdf",
+                  filename: "mysealingpetition.pdf",
+                  type: "application/pdf")
+      end
+    end
   end
 
   private
