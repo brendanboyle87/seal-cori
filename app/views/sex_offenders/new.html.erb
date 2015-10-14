@@ -1,10 +1,10 @@
-<div class= "small-12-columns small-cenetred question-box" align= "center" >
-  <%= form_tag(sex_offenders_path, method: 'get', id: 'sex-offender-question') do %>
+<div class= "small-6 small-centered columns question-box" align= "center" >
+  <%= form_tag(sex_offenders_path, method: 'get', class: 'question-content', id: 'sex-offender-question') do %>
     <p> Have you been a registered sex offender at any point in the last 15 years? </p>
     <%= radio_button_tag(:yes_or_no, "yes") %>
     <%= label_tag(:yes, "Yes") %>
     <%= radio_button_tag(:yes_or_no, "no") %>
     <%= label_tag(:no, "No") %>
-    <%= submit_tag("Submit", id: 'question_one_submit') %>
+    <%= submit_tag("Submit", class: "button tiny round") %>
   <% end %>
 <div>

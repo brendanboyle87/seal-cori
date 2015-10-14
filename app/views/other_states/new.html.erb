@@ -1,11 +1,11 @@
-<div class= "small-12-columns small-cenetred question-box" align= "center" >
-  <%= form_tag(other_states_path, method: 'get', id: 'other-states-question') do %>
-    <p> Have you been convicted of a misdemeanor in the last five years or
-        a felony in the last 10 years in another state? </p>
+<div class= "small-6 small-centered columns question-box" align= "center" >
+  <%= form_tag(other_states_path, method: 'get', class: 'question-content', id: 'other-states-question') do %>
+    <p> Have you been convicted of a <em>misdemeanor</em> in the last <em>five years</em> or
+        a <em>felony</em> in the <em>last 10 years</em> in another state? </p>
     <%= radio_button_tag(:yes_or_no, "yes") %>
     <%= label_tag(:yes, "Yes") %>
     <%= radio_button_tag(:yes_or_no, "no") %>
     <%= label_tag(:no, "No") %>
-    <%= submit_tag("Submit") %>
+    <%= submit_tag("Submit", class: "button round tiny") %>
   <% end %>
 <div>

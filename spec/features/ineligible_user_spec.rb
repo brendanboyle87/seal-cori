@@ -26,7 +26,7 @@ feature 'user makes it to eligibility form', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('convicted_yes')
     choose('incarcerated_yes')
     fill_in 'datepicker', with: "08/08/2013"
@@ -42,7 +42,7 @@ feature 'user makes it to eligibility form', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
     choose('convicted_yes')
     choose('incarcerated_yes')
@@ -58,7 +58,7 @@ feature 'user makes it to eligibility form', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
 
     fill_in 'datepicker', with: "08/08/2007"
@@ -74,7 +74,7 @@ feature 'user makes it to eligibility form', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
     fill_in 'datepicker', with: "08/08/2012"
