@@ -16,7 +16,7 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
     fill_in 'datepicker', with: "08/08/2009"
@@ -40,7 +40,7 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
 
     fill_in 'datepicker', with: "08/08/2003"
@@ -58,7 +58,7 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
     fill_in 'datepicker', with: "08/08/2009"
@@ -70,7 +70,7 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_yes')
     click_button "Submit"
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
     choose('convicted_yes')
 
@@ -86,7 +86,7 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
     fill_in 'datepicker', with: "08/08/2009"
@@ -98,7 +98,7 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_yes')
     click_button "Submit"
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
 
 
@@ -120,7 +120,7 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
     fill_in 'datepicker', with: "08/08/2012"
@@ -131,7 +131,7 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_yes')
     click_button "Submit"
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
 

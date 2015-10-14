@@ -1,0 +1,51 @@
+.hidden { display: none; }
+
+.text-content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+.instructions {
+  margin-top: 1em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.instructions p {
+  font-size: 20px;
+  font-style: bold;
+}
+
+.question-box {
+  margin-top: 2em;
+  padding-top: 4em;
+  border: 2px solid black;
+  background-color: #FFFFFF;
+}
+
+.question-content {
+  padding-bottom: 1em;
+
+}
+
+.question-content p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.question-content label {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.record-form label {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.footer-bar{
+  margin-top: 12em;
+}
