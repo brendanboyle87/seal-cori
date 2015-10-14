@@ -83,4 +83,21 @@ feature 'user makes it to eligibility form', %{
     expect(page).to have_content "This crime is not eligible to be sealed yet."
     expect(page).to have_content "Do you have another crime on your CORI report?"
   end
+
+  scenario 'user is not eligible due to an unseable crime', js: true do
+    user = FactoryGirl.create(:user)
+
+    sign_in_as(user)
+    question_one_two
+
+    fill_in 'Name of Crime', with: "Perjury"
+    choose('felony_or_misdemeanor_misdemeanor')
+    choose('convicted_yes')
+    choose('incarcerated_yes')
+
+    fill_in 'datepicker', with: "08/08/2009"
+    find("#eligibility-submit").trigger('click')
+
+    expect(page).to have_content "A Perjury conviction cannot be sealed in Massachusetts."
+  end
 end

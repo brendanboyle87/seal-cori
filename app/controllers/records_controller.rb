@@ -1,7 +1,5 @@
 class RecordsController < ApplicationController
-  include
   before_action :authenticate_user!
-
 
   def new
     @record = Record.new
@@ -39,10 +37,7 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
-  end
-
-  def edit
-    @record = Record.find(params[:id])
+    authorize_user(@record)
   end
 
   private
@@ -65,5 +60,11 @@ class RecordsController < ApplicationController
     end
     params.require(:record).permit(
     :crime_name,:disposition_date, :convicted, :misdemeanor, :felony)
+  end
+
+  def authorize_user(record)
+    unless current_user == record.user
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end

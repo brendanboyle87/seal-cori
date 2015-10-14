@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+unsealable_offenses = [ "FIREARM DEALER'S LICENSE, IMPROP ISSUE", "Unlicensed Sale of Ammunition",
+  "Firearm Violation Sale", "Failure to Report Unlicensed Fireman", "False Statement on Firearm Application",
+  "False Statement on Firearm ID Card Application", "Firearm Sale to Minor", "Firearm Violation License",
+
+
+]
