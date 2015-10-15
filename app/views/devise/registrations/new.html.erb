@@ -1,47 +1,63 @@
-<h2>Sign up</h2>
+<div class= "small-10-columns">
+  <h2>Sign up</h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+ <div class="row">
+    <div class= "field small-10 columns">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+  </div>
+ <div>
+
+   <div class="row">
+      <div class= "field small-10 columns">
+         <%= f.label :first_name %>
+         <%= f.text_field :first_name %>
+      </div>
+   </div>
+
+
+  <div class="row">
+    <div class= "field small-10 columns">
+     <%= f.label :last_name %>
+     <%= f.text_field :last_name %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+
+  <div class="row">
+    <div class= "field small-10 columns">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+  <div class="row">
+    <div class= "field small-10 columns">
+     <%= f.label :password_confirmation %>
+     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
   </div>
 
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row">
+    <div class= "field small-10 small-centered small-offset-1 columns" id="terms-pane">
+  		<h2 align="center">Terms & Conditions</h2>
+  		<p>Pellentesque habitant morbi tristique senectus...</p>
+  		<p>Pellentesque habitant morbi tristique senectus...</p>
+      <p> more things <p>
+      <p> LOTS OF STUFFFFASDFASDFSDAFDSAFf
+        dafdsfdafdsfasdfasdfsdfasdfadsfsdf
+        dfasfsdfadsfdasfdsaf
+      </p>
+	  </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div id="terms-pane">
-		<h2>Terms & Conditions</h2>
-		<p>Pellentesque habitant morbi tristique senectus...</p>
-		<p>Pellentesque habitant morbi tristique senectus...</p>
-    <p> more things <p>
-    <p> LOTS OF STUFFFFASDFASDFSDAFDSAFf
-      dafdsfdafdsfasdfasdfsdfasdfadsfsdf
-      dfasfsdfadsfdasfdsaf
-      <p>
-	</div>
 
   <div class="field">
     <%= f.label "Accept Terms" %>
@@ -49,7 +65,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "button round tiny" %>
   </div>
 <% end %>
 

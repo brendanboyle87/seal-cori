@@ -1,1 +1,17 @@
-#terms-pane	{ width:800px; height:200px; overflow:scroll; border:1px solid #ccc; background:#eee; margin:5px 0; padding:10px 20px; color: #222222 }
+#terms-pane	{
+   width:700px;
+   height:200px;
+   overflow:scroll;
+   border:1px
+   solid #ccc;
+   background:#eee;
+   color: #222222
+ }
+
+#terms-pane h2 {
+  color: black;
+}
+
+#new_user {
+  margin-top: 6em;
+}
