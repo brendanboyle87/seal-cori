@@ -1,12 +1,12 @@
 <div class= "small-10 small-centered columns instructions" align= "center">
   <% if !session[:crime_count].blank? && session[:crime_count] >= 1 %>
-     <p>
-      Please fill out the form below with the information from the next crime on your CORI Report:
-     </p>
+     <h1>
+      Please enter the information from the next crime on your CORI Report:
+    </h1>
   <% else %>
-    <p>
-      Please fill out the form below with the information from the first crime on your CORI Report:
-    </p>
+    <h1>
+      Please enter the information from the first crime on your CORI Report:
+    </h1>
   <% end %>
 </div>
 <div class= "row">
@@ -45,7 +45,7 @@
       <div class= "row">
         <div class= "date-group small-12 columns">
           <span id="date-text"> <%= f.label :disposition_date, "Disposition Date:" %> </span>
-          <%= f.text_field :disposition_date, id: "datepicker" %>
+          <%= f.text_field :disposition_date, class: "datepicker", id: "record-date" %>
         </div>
       </div>
 

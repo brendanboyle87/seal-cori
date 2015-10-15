@@ -1,3 +1,26 @@
-<p> Your Petition to Seal is ready to download! </p>
+<div class= "small-12 small-centered columns">
+  <h1> Your Petition to Seal is ready to download! </h1>
+</div>
 
-<%= link_to "Download PDF", "/personal_informations/#{@personal_information.id}.pdf" %>
+<div class= "row info-row">
+  <div class= "small-6 columns">
+    <h4> Next steps: </h4>
+    <ol>
+      <li> Write in Social Security number. </li>
+      <li> Sign the form under your personal info and at the bottom. </li>
+      <li> Mail to the address on the right. </li>
+    </ol>
+  </div>
+  <div class= "small-6 columns address">
+    <h4> Mail to: </h4>
+    <p> Commissioner of Probation </p>
+    <p> One Ashburton Place, Rm. 405 </p>
+    <p> Boston, MA 02108 </p>
+  </div>
+</div>
+
+<div class= "row">
+  <div class= "small-4 small-centered columns download">
+    <%= button_to "Download PDF", "/personal_informations/#{@personal_information.id}.pdf", class: "button round" %>
+  </div>
+</div>
