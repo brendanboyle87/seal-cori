@@ -7,12 +7,6 @@ class RecordsController < ApplicationController
     @record = Record.new
   end
 
-  # def create
-  #   record_navigator = RecordNavigator.new(...)
-  #   if record_navigator.<logic for first conditional>
-  #     flash[:notice] = record_navigator.flash_notice
-  #     redirect_to
-
   def create
     @record = Record.new(record_params)
     @record.user = current_user
