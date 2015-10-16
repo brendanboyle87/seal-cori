@@ -1,1 +1,5 @@
-<h1> <%= @record.crime_name %> is not eligible to be sealed at this time <h1>
+<% if @record.banned? %>
+  <h1> A <%= @record.crime_name %> conviction cannot be sealed in Massachusetts. </h1>
+<% else %>
+  <h1> <%= @record.crime_name %> is not eligible to be sealed at this time </h1>
+<% end %>

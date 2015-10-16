@@ -20,11 +20,16 @@ class RecordsController < ApplicationController
           return
         end
       end
-      if @record.misdemeanor?
+
+      if @record.banned?
+        redirect_to record_path(@record)
+        return
+      elsif @record.misdemeanor?
         flash[:notice] = "This crime is eligible to be sealed! Now we need to check
         if there are other crimes on your report."
         session[:crime_count] = 1
         redirect_to new_more_crime_path
+        return
       else
         redirect_to new_other_state_path
         return
@@ -56,7 +61,7 @@ class RecordsController < ApplicationController
     end
     date = params[:record][:disposition_date]
     unless date.empty?
-      params[:record][:disposition_date] = Date.strptime(date, '%d/%m/%Y')
+      params[:record][:disposition_date] = Date.strptime(date, '%m/%d/%Y')
     end
     params.require(:record).permit(
     :crime_name,:disposition_date, :convicted, :misdemeanor, :felony)
