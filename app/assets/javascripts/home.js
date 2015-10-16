@@ -5,3 +5,22 @@ $(document).ready(function() {
     })
   }, 4600);
 })
+
+$('#cori-question-submit').one('click', function(e) {
+      e.preventDefault();
+      if (document.getElementById('yes_or_no_no').checked) {
+        debugger;
+        document.location.href = '/pages/nocori';
+      }
+      if (document.getElementById('yes_or_no_yes').checked) {
+        $.get("/cori_questions.json", { "yes_or_no": "yes"}).done(function(data) {
+            $('.question-content').attr({
+              action: data['action'],
+              id: data['id']
+            });
+            $('.question-content p').text(data['paragraph']);
+            $('#cori-question-submit').attr('id', 'sex-offender-submit');
+            console.log("Question changed!");
+        });
+      }
+  });
