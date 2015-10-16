@@ -1,44 +1,76 @@
-<h2> Congrats! You are elibigble! <h2>
-<p> Please fill out all the information that applies in the form below. It will be used to create your Petition to Seal. </p>
+<div class="small-8 small-centered columns">
+  <h1> Congrats! You are eligible! <h1>
+</div>
 
-<div class= "small-6-column columns personal-info-form">
+<div class= "row">
+ <p class= "small-8 small-centered columns instructions"> Please fill out all the information that applies in the form below. It will be used to create your Petition to Seal. </p>
+</div>
+
+<div class= "small-8 small-centered columns personal-info-form">
   <%= form_for @personal_information do |f| %>
-    <%= f.label :middle_name, "Middle Name" %>
-    <%= f.text_field :middle_name %>
-
-    <%= f.label :previous_name, "Alias/Madien/Previous Name" %>
-    <%= f.text_field :previous_name %>
-
-    <%= f.label :date_of_birth, "Date of Birth (mm/dd/yyyy)" %>
-    <%= f.text_field :date_of_birth %>
-
-    <%= f.label :address, "Mailing Address" %>
-    <%= f.text_field :address %>
-
+    <div class = "row">
+      <div class = "small-6 columns">
+        <%= f.label :middle_name, "Middle Name" %>
+        <%= f.text_field :middle_name %>
+     </div>
+     <div class = "small-6 columns">
+      <%= f.label :previous_name, "Alias/Madien/Previous Name" %>
+      <%= f.text_field :previous_name %>
+    </div>
+   </div>
+    <div class = "row">
+      <div class = "small-6 columns">
+        <%= f.label :date_of_birth, "Date of Birth (mm/dd/yyyy)" %>
+        <%= f.text_field :date_of_birth, class: 'datepicker' %>
+      </div>
+       <div class = "small-6 columns">
+        <%= f.label :address, "Mailing Address" %>
+        <%= f.text_field :address %>
+      </div>
+  </div>
+  <div class = "row">
+    <div class = "small-4 columns">
     <%= f.label :city, "City" %>
     <%= f.text_field :city %>
+  </div>
 
+    <div class = "small-4 columns">
     <%= f.label :state, "State" %>
     <%= f.select :state, StatesHelper::US_STATES, include_blank: true  %>
+  </div>
 
+    <div class = "small-4 columns">
     <%= f.label :zip, "Zip Code" %>
     <%= f.text_field :zip %>
-
-    <%= f.label :Occupation, "Occupation" %>
+  </div>
+  </div>
+  <div class= "row">
+    <div class = "small-6 columns">
+    <%= f.label :occupation, "Occupation" %>
     <%= f.text_field :occupation %>
+   </div>
 
-    <%= f.label :hometown, "Place of Birth" %>
-    <%= f.text_field :hometown %>
-
+    <div class= "small-6 columns">
+      <%= f.label :hometown, "Place of Birth" %>
+      <%= f.text_field :hometown %>
+    </div>
+  </div>
+  <div class= "row">
+    <div class = "small-4 columns">
     <%= f.label :father_name, "Father's Name" %>
     <%= f.text_field :father_name %>
+  </div>
 
+    <div class = "small-4 columns">
     <%= f.label :mother_maiden, "Mother's Maiden Name" %>
     <%= f.text_field :mother_maiden %>
+  </div>
 
+    <div class = "small-4 columns">
     <%= f.label :spouse_name, "Husband/Wife's Name" %>
     <%= f.text_field :spouse_name %>
-
-    <%= f.submit "Submit", id: "persoanl-info-submit" %>
+  </div>
+  </div>
+    <%= f.submit "Submit", class: "button round", id: "persoanl-info-submit" %>
   <% end %>
 </div>

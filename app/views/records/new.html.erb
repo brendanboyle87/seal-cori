@@ -1,45 +1,55 @@
-<div class "small-12-column small-centered columns" align= "center">
+<div class= "small-10 small-centered columns instructions" align= "center">
   <% if !session[:crime_count].blank? && session[:crime_count] >= 1 %>
-     <p>
-      Please fill out the form below with the information from the next crime on your CORI Report:
-     </p>
+     <h1>
+      Please enter the information from the next crime on your CORI Report:
+    </h1>
   <% else %>
-    <p>
-      Please fill out the form below with the information from the first crime on your CORI Report:
-    </p>
+    <h1>
+      Please enter the information from the first crime on your CORI Report:
+    </h1>
   <% end %>
 </div>
 <div class= "row">
-  <div class= "small-6-column columns eligibility-form">
+  <div class= "small-8 small-centered columns record-form">
     <%= form_for @record do |f| %>
-      <%= f.label :crime_name, "Name of Crime" %>
-      <%= f.text_field :crime_name %>
-
-      <%= radio_button_tag(:felony_or_misdemeanor, "felony") %>
-      <%= label_tag(:felony, "Felony") %>
-      <%= radio_button_tag(:felony_or_misdemeanor, "misdemeanor", checked: true) %>
-      <%= label_tag(:misdemeanor, "Misdemeanor") %>
-      <br>
-      <%= radio_button_tag(:convicted, "yes") %>
-      <%= label_tag(:convicted, "Convicted") %>
-      <%= radio_button_tag(:convicted, "no", checked:true) %>
-      <%= label_tag(:convicted, "Not Convicted") %>
-      <br>
-      <div id="incarcerated-group" class="hidden">
-        <p> Were you incarcerated? <p>
-        <%= radio_button_tag(:incarcerated, "yes") %>
-        <%= label_tag(:incarcerated, "Yes") %>
-        <%= radio_button_tag(:incarcerated, "no", checked: true) %>
-        <%= label_tag(:incarcerated, "No") %>
-      </div>
-          <div class= "row">
-        <div class= "date-group small-6-column small-centered columns">
-          <span id="date-text"> <%= f.label :disposition_date, "Disposition Date:" %> </span>
-          <%= f.text_field :disposition_date, id: "datepicker" %>
+      <div class= "row">
+        <div class= "small-12 columns">
+          <%= f.label :crime_name, "Name of Crime:" %>
+          <%= f.text_field :crime_name %>
         </div>
       </div>
 
-      <%= f.submit "Submit", id: "eligibility-submit" %>
+      <div class = "row">
+        <div class= "small-6 columns" >
+          <%= radio_button_tag(:felony_or_misdemeanor, "felony") %>
+          <%= label_tag(:felony, "Felony") %>
+          <%= radio_button_tag(:felony_or_misdemeanor, "misdemeanor", checked: true) %>
+          <%= label_tag(:misdemeanor, "Misdemeanor") %>
+        </div>
+        <div class= "small-6 columns">
+          <%= radio_button_tag(:convicted, "yes") %>
+          <%= label_tag(:convicted, "Convicted") %>
+          <%= radio_button_tag(:convicted, "no", checked:true) %>
+          <%= label_tag(:convicted, "Not Convicted") %>
+        </div>
+     </div>
+     <div class= "row">
+        <div id="incarcerated-group" class="hidden small-12 columns">
+          <p> Were you incarcerated? <p>
+          <%= radio_button_tag(:incarcerated, "yes") %>
+          <%= label_tag(:incarcerated, "Yes") %>
+          <%= radio_button_tag(:incarcerated, "no", checked: true) %>
+          <%= label_tag(:incarcerated, "No") %>
+        </div>
+     </div>
+      <div class= "row">
+        <div class= "date-group small-12 columns">
+          <span id="date-text"> <%= f.label :disposition_date, "Disposition Date:" %> </span>
+          <%= f.text_field :disposition_date, class: "datepicker", id: "record-date" %>
+        </div>
+      </div>
+
+      <%= f.submit "Submit", class: "button round", id: "eligibility-submit" %>
     <% end %>
   </div>
 </div>

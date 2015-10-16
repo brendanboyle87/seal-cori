@@ -26,10 +26,10 @@ feature 'user makes it to eligibility form', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('convicted_yes')
     choose('incarcerated_yes')
-    fill_in 'datepicker', with: "08/08/2013"
+    fill_in 'record-date', with: "08/08/2013"
 
     find("#eligibility-submit").trigger('click')
     expect(page).to have_content "Simple Assault is not eligible to be sealed at this time"
@@ -42,11 +42,11 @@ feature 'user makes it to eligibility form', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
     choose('convicted_yes')
     choose('incarcerated_yes')
-    fill_in 'datepicker', with: "08/08/2007"
+    fill_in 'record-date', with: "08/08/2007"
 
     find("#eligibility-submit").trigger('click')
     expect(page).to have_content "Aggravated Assault is not eligible to be sealed at this time"
@@ -58,10 +58,10 @@ feature 'user makes it to eligibility form', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
 
-    fill_in 'datepicker', with: "08/08/2007"
+    fill_in 'record-date', with: "08/08/2007"
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "This crime is not eligible to be sealed yet."
@@ -74,10 +74,10 @@ feature 'user makes it to eligibility form', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
-    fill_in 'datepicker', with: "08/08/2012"
+    fill_in 'record-date', with: "08/08/2012"
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "This crime is not eligible to be sealed yet."

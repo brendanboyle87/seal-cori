@@ -16,10 +16,10 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
-    fill_in 'datepicker', with: "08/08/2009"
+    fill_in 'record-date', with: "08/08/2009"
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "This crime is eligible to be sealed! Now we need to check
@@ -31,7 +31,7 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
-    expect(page).to have_content 'Congrats! You are elibigble!'
+    expect(page).to have_content 'Congrats! You are eligible!'
   end
 
   scenario 'users first crime is an eligible felony', js: true do
@@ -40,16 +40,16 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
 
-    fill_in 'datepicker', with: "08/08/2003"
+    fill_in 'record-date', with: "08/08/2003"
     find("#eligibility-submit").trigger('click')
 
     choose('yes_or_no_no')
     click_button "Submit"
 
-    expect(page).to have_content 'Congrats! You are elibigble!'
+    expect(page).to have_content 'Congrats! You are eligible!'
   end
 
   scenario 'user has eligible misdemeanor and an ineligible felony conviction', js: true do
@@ -58,10 +58,10 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
-    fill_in 'datepicker', with: "08/08/2009"
+    fill_in 'record-date', with: "08/08/2009"
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "This crime is eligible to be sealed! Now we need to check
@@ -70,11 +70,11 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_yes')
     click_button "Submit"
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
     choose('convicted_yes')
 
-    fill_in 'datepicker', with: "08/08/2008"
+    fill_in 'record-date', with: "08/08/2008"
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "Aggravated Assault is not eligible to be sealed at this time"
@@ -86,10 +86,10 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
-    fill_in 'datepicker', with: "08/08/2009"
+    fill_in 'record-date', with: "08/08/2009"
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "This crime is eligible to be sealed! Now we need to check
@@ -98,11 +98,11 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_yes')
     click_button "Submit"
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_felony')
 
 
-    fill_in 'datepicker', with: "08/08/2008"
+    fill_in 'record-date', with: "08/08/2008"
     find("#eligibility-submit").trigger('click')
 
     choose('yes_or_no_no')
@@ -111,7 +111,7 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
-    expect(page).to have_content 'Congrats! You are elibigble!'
+    expect(page).to have_content 'Congrats! You are eligible!'
   end
 
   scenario 'user has eligible misdemeanor and an ineligible misdemeanor non-conviction', js: true do
@@ -120,10 +120,10 @@ feature 'user with crimes eligible to be sealed', %{
     sign_in_as(user)
     question_one_two
 
-    fill_in 'Name of Crime', with: "Simple Assault"
+    fill_in 'Name of Crime:', with: "Simple Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
-    fill_in 'datepicker', with: "08/08/2012"
+    fill_in 'record-date', with: "08/08/2012"
     find("#eligibility-submit").trigger('click')
 
     expect(page).to have_content "This crime is not eligible to be sealed"
@@ -131,11 +131,11 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_yes')
     click_button "Submit"
 
-    fill_in 'Name of Crime', with: "Aggravated Assault"
+    fill_in 'Name of Crime:', with: "Aggravated Assault"
     choose('felony_or_misdemeanor_misdemeanor')
 
 
-    fill_in 'datepicker', with: "08/08/2008"
+    fill_in 'record-date', with: "08/08/2008"
     find("#eligibility-submit").trigger('click')
 
     choose('yes_or_no_no')
@@ -144,6 +144,6 @@ feature 'user with crimes eligible to be sealed', %{
     choose('yes_or_no_no')
     click_button "Submit"
 
-    expect(page).to have_content 'Congrats! You are elibigble!'
+    expect(page).to have_content 'Congrats! You are eligible!'
   end
 end

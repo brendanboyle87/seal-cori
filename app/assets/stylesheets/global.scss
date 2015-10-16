@@ -1,0 +1,97 @@
+body {
+  background: image-url("Supreme_Court_Front_Dusk_vignette.jpg");
+  background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.hidden { display: none; }
+
+.content-box {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#sign_in_sign_up {
+  margin-top: 1em;
+}
+
+.text-content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+.instructions {
+  margin-top: 1em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.instructions p {
+  font-size: 20px;
+  font-style: bold;
+}
+
+.question-box {
+  margin-top: 8em;
+  padding-top: 4em;
+  background-color: rgba(0,62,95,.5);
+}
+
+#cori-question {
+  margin-top: 3em;
+}
+
+
+.question-content {
+  padding-bottom: 1em;
+
+}
+
+.question-content p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.question-content label {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.record-form {
+  background-color: rgba(0,62,95,.5);
+}
+
+.record-form label {
+  padding-top: 4px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.footer-bar{
+  margin-top: 12em;
+}
+
+.personal-info-form {
+  background-color: rgba(0,62,95,.5);
+}
+
+.personal-info-form label {
+  padding-top: 4px;
+}
+
+.address p {
+  margin-bottom: 0px;
+}
+
+.info-row {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.download {
+  margin-top: 1em;
+}

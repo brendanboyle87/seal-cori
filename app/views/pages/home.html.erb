@@ -1,21 +1,36 @@
-<div class= "small-12-column small-centered columns" align= "center">
+<div class= "small-12 small-centered columns">
   <h1 align= "center"> Welcome to SealCORI! </h1>
-  <p> Do you have a criminal record in Massachusetts? Has it stopped you from getting a job or housing? <p>
-      SealCORI will help determine if you can have your records sealed.
-      Once they are sealed you will no longer have to put you have a criminal record when completing applications. <p>
-
-  <%= link_to "Sign up to get started!", new_user_registration_path %>
 </div>
-
+<div class= "row">
+  <div class="small-10 small-centered columns content-box">
+   <p class= "text-justify  text-content" align= "center">
+      Do you have a criminal record in Massachusetts?
+      Has it stopped you from getting a job or housing?
+      SealCORI will help determine if you can have your records sealed.
+      A completely sealed record <em>does not</em> have to be reported on applications. </p>
+  </div>
+</div>
+  <% if current_user %>
+    <% hidden = "hidden" %>
+  <% end %>
+  <div class = "row">
+    <div class = "small-12 column small-centered columns <%= hidden %>" align = "center">
+      <ul class="button-group round" id="sign_in_sign_up">
+        <li><%= link_to "Sign Up", new_user_registration_path, class: "button" %></li>
+        <li><%= link_to "Sign In", new_user_session_path, class: "button" %></li>
+      </ul>
+  </div>
 <% unless current_user.nil? %>
-  <div class= "small-12-column small-centered columns question-box" align= "center" >
-    <%= form_tag(cori_questions_path, method: 'get', id: 'cori-question') do %>
-      <p> Do you have your CORI report? </p>
-      <%= radio_button_tag(:yes_or_no, "yes") %>
-      <%= label_tag(:yes, "Yes") %>
-      <%= radio_button_tag(:yes_or_no, "no") %>
-      <%= label_tag(:no, "No") %>
-      <%= submit_tag("Submit", id: 'question_one_submit') %>
-    <% end %>
-  <div>
+  <div class= "row">
+    <div class= "small-6 small-centered columns  question-box" id="cori-question" align= "center" >
+      <%= form_tag(cori_questions_path, method: 'get', class: 'question-content')  do %>
+        <p>Do you have your CORI report?</p>
+        <%= radio_button_tag(:yes_or_no, "yes") %>
+        <%= label_tag(:yes, "Yes") %>
+        <%= radio_button_tag(:yes_or_no, "no") %>
+        <%= label_tag(:no, "No") %>
+        <%= submit_tag("Submit",  class: "button tiny round", id: "cori-question-submit") %>
+      <% end %>
+    <div>
+  </div>
 <% end %>

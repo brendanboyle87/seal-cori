@@ -11,8 +11,8 @@ class RecordsController < ApplicationController
     if @record.save
       unless @record.eligible?
         if !@record.convicted?
-          session[:crime_count] = 1
           flash[:notice] = "This crime is not eligible to be sealed yet."
+          session[:crime_count] = 1
           redirect_to new_more_crime_path
           return
         else
