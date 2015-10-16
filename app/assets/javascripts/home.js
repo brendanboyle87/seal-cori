@@ -20,7 +20,6 @@ $('#cori-question-submit').one('click', function(e) {
             });
             $('.question-content p').text(data['paragraph']);
             $('#cori-question-submit').attr('id', 'sex-offender-submit');
-            console.log("Question changed!");
         });
       }
   });
