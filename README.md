@@ -2,8 +2,8 @@
 
 #SealCORI
 
-SealCORI is an application that helps individuals with a criminal history in
-Massachusetts determine if they are eligible to seal their criminal records. The app leads
+SealCORI helps individuals with a criminal history in Massachusetts determine if
+they are eligible to seal their criminal records. The app leads
 users through a multi-part form, determines their eligibility, and if eligible
 inserts their information into the State PDF form using the pdftk-binary
 and pdf-forms gem.  
