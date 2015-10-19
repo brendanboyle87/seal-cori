@@ -1,4 +1,4 @@
-![Build Status](https://codeship.com/projectsd566e870-4d8e-0133-9ee6-6e1cce453881/status?branch=master)![Code Climate](https://codeclimate.com/github/brendanboyle87/seal-cori.png) [![Coverage Status]
+[Code Climate](https://codeclimate.com/github/brendanboyle87/seal-cori.png) [![Coverage Status]
 
 #SealCORI
 
