@@ -1,6 +1,6 @@
 class PetitionGenerator
-  attr_reader :personal_information, :info_hash, :pdftk
-  attr_accessor :info_hash, :user
+  attr_reader :personal_information, :info_hash, :pdftk, :user
+  attr_accessor :info_hash
 
 
   def initialize(personal_information)

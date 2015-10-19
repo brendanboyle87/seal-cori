@@ -12,9 +12,9 @@ class Record < ActiveRecord::Base
   validates :disposition_date, date: true, presence: true
 
   def eligible?
-    if self.misdemeanor? && (self.disposition_date > (DateTime.now - 5.years)) && !self.banned?
+    if self.misdemeanor? && (self.disposition_date > (DateTime.now - 5.years)) 
       false
-    elsif self.felony? && (self.disposition_date > (DateTime.now - 10.years)) && !self.banned?
+    elsif self.felony? && (self.disposition_date > (DateTime.now - 10.years))
       false
     else
       true
