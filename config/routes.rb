@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :cori_questions, only: [:index]
   resources :sex_offenders, only: [:index, :new]
   resources :more_crimes, only: [:index, :new]
-  resources :records, only: [:new, :create, :show, :update, :edit]
+  resources :records, only: [:new, :create, :show]
   resources :other_states, only: [:new, :index]
   resources :personal_informations, only: [:new, :create, :show]
   # The priority is based upon order of creation: first created -> highest priority.

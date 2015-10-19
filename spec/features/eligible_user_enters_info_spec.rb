@@ -12,6 +12,10 @@ feature 'user who is eligible with no crime in other states', %{
   # I am presented with a filled in PDF
 
   scenario 'user does not fill out any of the required fields' do
+    record = FactoryGirl.create(:record)
+    user = record.user
+
+    sign_in_as(user)
 
     visit new_personal_information_path
 
@@ -34,5 +38,26 @@ feature 'user who is eligible with no crime in other states', %{
     expect(page).to have_content "Zip is not a number."
     expect(page).to have_content "Zip is the wrong length (should be 5 characters)."
     expect(page).to have_content "Date of birth can't be blank"
+  end
+
+  scenario 'user fills in all required fields' do
+    record = FactoryGirl.create(:record)
+    user = record.user
+
+    sign_in_as(user)
+
+    visit new_personal_information_path
+
+    fill_in "Address", with: "241 Alvin St."
+    fill_in "City", with: "Warwick"
+    select("RI", from: "State")
+    fill_in "Zip Code", with: "02886"
+    fill_in "Place of Birth", with: "Warwick, RI"
+    fill_in "Father's Name", with: "Stephen Boyle"
+    fill_in "Date of Birth (mm/dd/yyyy)", with: "08/08/87"
+
+    click_button "Submit"
+
+    expect(page).to have_content "Your Petition to Seal is ready to download!"
   end
 end

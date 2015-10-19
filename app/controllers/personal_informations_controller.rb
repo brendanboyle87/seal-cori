@@ -1,6 +1,8 @@
 require './app/models/petition_generator.rb'
 
 class PersonalInformationsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @personal_information = PersonalInformation.new
   end
@@ -18,6 +20,7 @@ class PersonalInformationsController < ApplicationController
 
   def show
     @personal_information = PersonalInformation.find(params[:id])
+    authorize_user(@personal_information)
 
     respond_to do |format|
       format.html
@@ -38,5 +41,11 @@ class PersonalInformationsController < ApplicationController
     params.require(:personal_information).permit(:middle_name, :previous_name,
     :date_of_birth, :address, :city, :state, :zip, :occupation,
     :hometown, :father_name, :mother_maiden, :spouse_name)
+  end
+
+  def authorize_user(personal_information)
+    unless current_user == personal_information.user
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end

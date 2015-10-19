@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-feature 'user makes it to eligibility form', %{
-  As a signed in User, with his CORI report who is not a registrered
-  sex-offender I want to find out if I can seal my records.
+feature 'user makes determines eligibility', %{
+  As a signed in User, I want to find out if I can seal my records.
 } do
   # Acceptance Criteria:
   # * User must be signed in to see the eligibility form
@@ -82,5 +81,23 @@ feature 'user makes it to eligibility form', %{
 
     expect(page).to have_content "This crime is not eligible to be sealed yet."
     expect(page).to have_content "Do you have another crime on your CORI report?"
+  end
+
+  scenario 'user is not eligible due to an unseable crime', js: true do
+    user = FactoryGirl.create(:user)
+    FactoryGirl.create(:unsealable_crime)
+
+    sign_in_as(user)
+    question_one_two
+
+    fill_in 'Name of Crime', with: "Unlicensed Sale of Ammunition"
+    choose('felony_or_misdemeanor_misdemeanor')
+    choose('convicted_yes')
+    choose('incarcerated_yes')
+
+    fill_in 'record-date', with: "08/08/2009"
+    find("#eligibility-submit").trigger('click')
+
+    expect(page).to have_content "A Unlicensed Sale of Ammunition conviction cannot be sealed in Massachusetts."
   end
 end

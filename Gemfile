@@ -26,8 +26,8 @@ gem "dotenv-rails"
 gem "devise"
 gem "date_validator"
 gem "jquery-ui-rails", '~> 4.2.1'
-gem "httparty"
 gem "pdf-forms"
+gem "pg_search"
 
 group :development, :test do
   gem "capybara"
