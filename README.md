@@ -1,4 +1,4 @@
-[Code Climate](https://codeclimate.com/github/brendanboyle87/seal-cori.png) [![Coverage Status]
+[![Code Climate](https://codeclimate.com/github/brendanboyle87/seal-cori/badges/gpa.svg)](https://codeclimate.com/github/brendanboyle87/seal-cori)
 
 #SealCORI
 
