@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('.alert-box').fadeOut('slow', function() {
       $(this).remove();
     })
-  }, 4600);
+  }, 4000);
 })
 
 $('#cori-question-submit').one('click', function(e) {
