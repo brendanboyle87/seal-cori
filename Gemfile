@@ -28,6 +28,8 @@ gem "date_validator"
 gem "jquery-ui-rails", '~> 4.2.1'
 gem "pdf-forms"
 gem "pg_search"
+gem "delayed_job_active_record"
+
 
 group :development, :test do
   gem "capybara"

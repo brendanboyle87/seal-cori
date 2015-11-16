@@ -11,6 +11,10 @@ class PersonalInformationsController < ApplicationController
     @personal_information = PersonalInformation.new(personal_info_params)
     @personal_information.user = current_user
     if @personal_information.save
+      user_pdf = PetitionGenerator.new(@personal_information)
+      info = user_pdf.parse_data
+      user_pdf.fill_form(info)
+      SendEmailJob.set(wait: 20.seconds).perform_later(@personal_information)
       redirect_to personal_information_path(@personal_information)
     else
       flash[:errors] = @personal_information.errors.full_messages.join(". ")
@@ -25,9 +29,6 @@ class PersonalInformationsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        user_pdf = PetitionGenerator.new(@personal_information)
-        info = user_pdf.parse_data
-        user_pdf.fill_form(info)
         send_file("#{Rails.root}/lib/assets/sealingpetition#{current_user.id}.pdf",
                   filename: "sealingpetition#{current_user.id}.pdf",
                   type: "application/pdf")

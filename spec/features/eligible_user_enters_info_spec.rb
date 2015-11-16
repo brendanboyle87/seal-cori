@@ -41,6 +41,8 @@ feature 'user who is eligible with no crime in other states', %{
   end
 
   scenario 'user fills in all required fields' do
+    ActionMailer::Base.deliveries.clear
+
     record = FactoryGirl.create(:record)
     user = record.user
 
@@ -59,5 +61,6 @@ feature 'user who is eligible with no crime in other states', %{
     click_button "Submit"
 
     expect(page).to have_content "Your Petition to Seal is ready to download!"
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 end
