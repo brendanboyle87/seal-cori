@@ -41,6 +41,8 @@ feature 'user who is eligible with no crime in other states', %{
   end
 
   scenario 'user fills in all required fields' do
+    ActionMailer::Base.deliveries.clear
+
     record = FactoryGirl.create(:record)
     user = record.user
 
