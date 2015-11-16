@@ -59,5 +59,6 @@ feature 'user who is eligible with no crime in other states', %{
     click_button "Submit"
 
     expect(page).to have_content "Your Petition to Seal is ready to download!"
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 end

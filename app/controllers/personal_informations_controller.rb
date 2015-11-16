@@ -14,6 +14,7 @@ class PersonalInformationsController < ApplicationController
       user_pdf = PetitionGenerator.new(@personal_information)
       info = user_pdf.parse_data
       user_pdf.fill_form(info)
+      PdfMailer.new_pdf(@personal_information).deliver_later
       redirect_to personal_information_path(@personal_information)
     else
       flash[:errors] = @personal_information.errors.full_messages.join(". ")
