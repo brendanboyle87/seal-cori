@@ -42,6 +42,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
+  config.active_job.queue_adapter = :delayed_job
+
   config.action_mailer.smtp_settings = {
     address: "localhost",
     port: 1025
