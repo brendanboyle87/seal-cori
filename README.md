@@ -8,9 +8,6 @@ users through a multi-part form, determines their eligibility, and if eligible
 inserts their information into the State PDF form using the pdftk-binary
 and pdf-forms gem.  
 
-## Live app hosted on Heroku
-[SealCORI](www.sealcori.com)
-
 ## Ruby Version
 2.2.2
 
